@@ -42,7 +42,7 @@ Web Pameran Seni dibangun dengan menggunakan teknologi terkini, termasuk:
 
 ## 🌐 Link Web
 
-Kunjungi web pameran seni kami di: [http://www.pameranseni.com](https://nathanieltee.github.io/uprakseni/)
+Kunjungi web pameran seni kami di: [nathanieltee.github.io/uprakseni/](https://nathanieltee.github.io/uprakseni/)
 
 ## 🤝 Kontribusi
 
