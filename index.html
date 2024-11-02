@@ -1051,29 +1051,32 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     </section>
 
 	<script>
-        function getUserInfo() {
-            // Mendapatkan alamat IP pengguna
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('user-ip').value = data.ip;
-                });
+  // Fungsi untuk mendapatkan alamat IP
+  async function fetchIP() {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      document.getElementById("user-ip").value = data.ip;
+    } catch (error) {
+      console.error("IP fetch error: ", error);
+    }
+  }
 
-            // Mendapatkan informasi perangkat
-            const userAgent = navigator.userAgent;
-            document.getElementById('user-device').value = userAgent;
+  // Fungsi untuk mendapatkan info perangkat (device type)
+  function fetchDeviceInfo() {
+    const userAgent = navigator.userAgent;
+    document.getElementById("user-device").value = userAgent;
+    document.getElementById("timestamp").value = new Date().toISOString();
+    document.getElementById("referrer-url").value = document.referrer;
+  }
 
-            // Mendapatkan timestamp saat ini
-            const timestamp = new Date().toISOString();
-            document.getElementById('timestamp').value = timestamp;
+  // Panggil fungsi saat halaman dimuat
+  window.onload = function() {
+    fetchIP();
+    fetchDeviceInfo();
+  };
+</script>
 
-            // Mendapatkan URL pengarah
-            const referrer = document.referrer;
-            document.getElementById('referrer-url').value = referrer;
-        }
-
-        window.onload = getUserInfo;
-    </script>
 
     <footer
       class="u-align-center u-black u-clearfix u-container-align-center u-footer u-footer"
